@@ -1,0 +1,56 @@
+import vendorIcon from "@/img/whetstone_inventory_icon.png";
+import waystoneIcon from "@/img/waystone_inventory_icon.png";
+import tabletIcon from "@/img/precursortablet_inventory_icon.png";
+import relicIcon from "@/img/relic_inventory_icon.png";
+
+const Requests = () => {
+  return (
+    <div>
+      <h1 className="flex items-center justify-center lg:text-3xl pt-10">Path of Exile 2 Regex</h1>
+      <p className="flex items-center justify-center pt-10">
+      目前处于早期开发阶段。新功能将随着游戏的探索而添加。
+      </p>
+      <p className="flex items-center justify-center">
+      请使用 Github 提出您希望增加的功能或发现的问题。
+      </p>
+
+      <h2 className="flex items-center justify-center lg:text-2xl pt-10">当前功能：</h2>
+      <p className="flex items-center justify-center pt-5">
+        <div>
+          <a href="/vendor" className="flex">
+            <img src={vendorIcon} alt="vendor regex" width="32" height="32"/>
+            <span>Npc商店 正则</span>
+          </a>
+        </div>
+      </p>
+      <p className="flex items-center justify-center pt-5">
+        <div>
+          <a href="/waystone" className="flex">
+            <img src={waystoneIcon} alt="waystone regex" width="32" height="32"/>
+            <span>换界石 正则</span>
+          </a>
+        </div>
+      </p>
+      <p className="flex items-center justify-center pt-5">
+        <div>
+          <a href="/tablet" className="flex">
+            <img src={tabletIcon} alt="tablet regex" width="32" height="32"/>
+            <span>Tablet Regex</span>
+          </a>
+        </div>
+      </p>
+
+      <p className="flex items-center justify-center pt-5">
+        <div>
+          <a href="/relic" className="flex">
+            <img src={relicIcon} alt="relic regex" width="22" height="22"/>
+            <span>Relic Regex</span>
+          </a>
+        </div>
+      </p>
+
+    </div>
+  )
+}
+
+export default Requests;
