@@ -6,7 +6,7 @@ import relicIcon from "@/img/relic_inventory_icon.png";
 const Requests = () => {
   return (
     <div>
-      <h1 className="flex items-center justify-center lg:text-3xl pt-10">Path of Exile 2 Regex</h1>
+      <h1 className="flex items-center justify-center lg:text-3xl pt-10">流放之路2正则工具</h1>
       <p className="flex items-center justify-center pt-10">
       目前处于早期开发阶段。新功能将随着游戏的探索而添加。
       </p>
@@ -19,7 +19,7 @@ const Requests = () => {
         <div>
           <a href="/vendor" className="flex">
             <img src={vendorIcon} alt="vendor regex" width="32" height="32"/>
-            <span>Npc商店 正则</span>
+            <span>商店正则</span>
           </a>
         </div>
       </p>
@@ -27,7 +27,7 @@ const Requests = () => {
         <div>
           <a href="/waystone" className="flex">
             <img src={waystoneIcon} alt="waystone regex" width="32" height="32"/>
-            <span>换界石 正则</span>
+            <span>换界石正则</span>
           </a>
         </div>
       </p>

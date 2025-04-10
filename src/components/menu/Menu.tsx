@@ -75,25 +75,25 @@ export function Menu() {
           <SidebarMenu>
             <SidebarMenuItem>
               <SidebarMenuButton asChild>
-                <a href="https://github.com/veiset/poe2.re/issues/new?assignees=veiset&labels=enhancement&projects=&template=feature_request.md&title=Feature%3A+%3CTitle%3E" target="_blank">
+                <a href="https://pd.qq.com/s/115ng3af4" target="_blank">
                   <Github/>
-                  <span>Feature request</span>
+                  <span>功能建议</span>
                 </a>
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
               <SidebarMenuButton asChild>
-                <a href="https://github.com/veiset/poe2.re/issues/new?assignees=veiset&labels=bug&projects=&template=bug_report.md&title=Bug%3A+%3CTitle%3E" target="_blank">
+                <a href="https://pd.qq.com/s/115ng3af4" target="_blank">
                   <Bug/>
-                  <span>Bug report</span>
+                  <span>错误报告</span>
                 </a>
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
               <SidebarMenuButton asChild>
-                <a href="https://github.com/veiset/poe2.re" target="_blank">
+                <a href="https://wqonline.com" target="_blank">
                   <Code/>
-                  <span>Source code</span>
+                  <span>攻略网站</span>
                 </a>
               </SidebarMenuButton>
             </SidebarMenuItem>
@@ -101,15 +101,16 @@ export function Menu() {
         </SidebarGroup>
         <SidebarGroup>
           <SidebarMenu>
-            <SidebarGroupLabel>Help out</SidebarGroupLabel>
+            <SidebarGroupLabel>打赏赞助</SidebarGroupLabel>
           </SidebarMenu>
           <SidebarMenu>
             <SidebarMenuItem>
               <SidebarMenuButton asChild>
                 <a href="https://buymeacoffee.com/veiset" target="_blank">
                   <Coffee />
-                  <span>Buy me a coffee</span>
-                </a>
+                  <span>赞助原作者</span>
+                </a>              
+                
               </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>
