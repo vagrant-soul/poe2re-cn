@@ -2,6 +2,7 @@ import vendorIcon from "@/img/whetstone_inventory_icon.png";
 import waystoneIcon from "@/img/waystone_inventory_icon.png";
 import tabletIcon from "@/img/precursortablet_inventory_icon.png";
 import relicIcon from "@/img/relic_inventory_icon.png";
+import bannerImg from "@/img/dashang.png";
 
 import {
   Code,
@@ -19,11 +20,12 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarImage,
 } from "@/components/ui/sidebar"
 
 const items = [
   {
-    title: "Vendor",
+    title: "商店",
     url: "/vendor",
     icon: vendorIcon,
   },
@@ -80,15 +82,7 @@ export function Menu() {
                   <span>功能建议</span>
                 </a>
               </SidebarMenuButton>
-            </SidebarMenuItem>
-            <SidebarMenuItem>
-              <SidebarMenuButton asChild>
-                <a href="https://pd.qq.com/s/115ng3af4" target="_blank">
-                  <Bug/>
-                  <span>错误报告</span>
-                </a>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
+            </SidebarMenuItem>            
             <SidebarMenuItem>
               <SidebarMenuButton asChild>
                 <a href="https://wqonline.com" target="_blank">
@@ -98,19 +92,24 @@ export function Menu() {
               </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>
+        </SidebarGroup>        
+        <SidebarGroup>          
+          <SidebarGroupContent>
+            <SidebarImage 
+              src={bannerImg}
+              alt="活动图片"
+              className="p-2 hover:opacity-90 transition-opacity"
+            />
+          </SidebarGroupContent>
         </SidebarGroup>
-        <SidebarGroup>
-          <SidebarMenu>
-            <SidebarGroupLabel>打赏赞助</SidebarGroupLabel>
-          </SidebarMenu>
+        <SidebarGroup>          
           <SidebarMenu>
             <SidebarMenuItem>
               <SidebarMenuButton asChild>
                 <a href="https://buymeacoffee.com/veiset" target="_blank">
                   <Coffee />
                   <span>赞助原作者</span>
-                </a>              
-                
+                </a>                         
               </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>

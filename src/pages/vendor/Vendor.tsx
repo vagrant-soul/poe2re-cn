@@ -47,7 +47,7 @@ export function Vendor() {
         <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4">        
           <div> 
               <div className="space-y-2 w-48">
-              <p className="text-xs font-medium text-sidebar-foreground/70">匹配模式</p>
+              <p className="text-xs font-medium text-green-400">匹配模式</p>
               <RadioGroup value={settings.matchType} onValueChange={(v) => {
                 setSettings({
                   ...settings, matchType: v,
@@ -55,11 +55,11 @@ export function Vendor() {
               }}>
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="any" id="any"/>
-                  <Label htmlFor="any" className="text-sm font-medium">任意匹配</Label>
+                  <Label htmlFor="any" className="font-medium text-green-400">任意匹配</Label>
                 </div>
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="both" id="both"/>
-                  <Label htmlFor="both" className="text-sm font-medium">同时匹配</Label>
+                  <Label htmlFor="both" className="font-medium text-green-400">同时匹配</Label>
                 </div>
               </RadioGroup>
             </div> 

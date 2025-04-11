@@ -11,7 +11,13 @@ const Requests = () => {
       目前处于早期开发阶段。新功能将随着游戏的探索而添加。
       </p>
       <p className="flex items-center justify-center">
-      请使用 Github 提出您希望增加的功能或发现的问题。
+      请使用QQ提出您希望增加的功能或发现的问题。
+      </p>
+      <p className="flex items-center justify-center">
+      当前测试阶段，完成商店部分的正则表达式生成
+      </p>
+      <p className="flex items-center justify-center">
+      服务器用的国外的，速度有点慢，希望大家打赏能支持一下，早点弄个国内的服务器
       </p>
 
       <h2 className="flex items-center justify-center lg:text-2xl pt-10">当前功能：</h2>
@@ -27,7 +33,7 @@ const Requests = () => {
         <div>
           <a href="/waystone" className="flex">
             <img src={waystoneIcon} alt="waystone regex" width="32" height="32"/>
-            <span>换界石正则</span>
+            <span>waystone</span>
           </a>
         </div>
       </p>

@@ -733,6 +733,21 @@ const SidebarMenuSubButton = React.forwardRef<
 })
 SidebarMenuSubButton.displayName = "SidebarMenuSubButton"
 
+const SidebarImage = React.forwardRef<
+  HTMLImageElement,
+  React.ImgHTMLAttributes<HTMLImageElement>
+>(({ className, ...props }, ref) => {
+  return (
+    <img
+      ref={ref}
+      data-sidebar="image"
+      className={cn("w-full h-auto", className)}
+      {...props}
+    />
+  )
+})
+SidebarImage.displayName = "SidebarImage"
+
 export {
   Sidebar,
   SidebarContent,
@@ -758,4 +773,5 @@ export {
   SidebarSeparator,
   SidebarTrigger,
   useSidebar,
+  SidebarImage, // 添加新的导出
 }
