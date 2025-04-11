@@ -13,7 +13,15 @@ export function generateVendorRegex(settings: Settings): string {
     itemClass(settings.vendor.itemClass),
   ].filter((e) => e !== null && e !== "")
 
-  return terms.length > 0 ? `"${terms.join("|")}"` : "";
+  // return terms.length > 0 ? `"${terms.join("|")}"` : "";
+  if (terms.length === 0) {
+    return "";
+  }
+  if (settings.vendor.matchType === "any") {
+    return `"${terms.join("|")}"`;
+  } else {
+    return terms.map((e) => `"${e}"`).join(" ");
+  }
 }
 
 

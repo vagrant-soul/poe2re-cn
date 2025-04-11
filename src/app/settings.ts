@@ -19,6 +19,7 @@ export interface Settings {
   name: string
   vendor: {
     resultSettings: ResultSettings,
+    matchType: string,
     itemType: {
       rare: boolean,
       magic: boolean,
@@ -141,6 +142,7 @@ export const defaultSettings: Settings = {
   name: "default",
   vendor: {
     resultSettings: defaultResultSettings,
+    matchType: "any",
     itemType: {
       rare: false,
       magic: false,

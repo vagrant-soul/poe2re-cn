@@ -6,6 +6,8 @@ import {useEffect, useState} from "react";
 import {defaultSettings, Settings} from "@/app/settings.ts";
 import {generateVendorRegex} from "@/pages/vendor/VendorResult.ts";
 import {Input} from "@/components/ui/input.tsx";
+import {Label} from "@/components/ui/label.tsx";
+import {RadioGroup, RadioGroupItem} from "@/components/ui/radio-group.tsx";
 
 export function Vendor() {
 
@@ -42,8 +44,26 @@ export function Vendor() {
         />
       </div>
       <div className="flex grow bg-muted/30 flex-1 flex-col gap-2 p-4">
-        <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4">
-          <div>
+        <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4">        
+          <div> 
+              <div className="space-y-2 w-48">
+              <p className="text-xs font-medium text-sidebar-foreground/70">匹配模式</p>
+              <RadioGroup value={settings.matchType} onValueChange={(v) => {
+                setSettings({
+                  ...settings, matchType: v,
+                })
+              }}>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="any" id="any"/>
+                  <Label htmlFor="any" className="text-sm font-medium">任意匹配</Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="both" id="both"/>
+                  <Label htmlFor="both" className="text-sm font-medium">同时匹配</Label>
+                </div>
+              </RadioGroup>
+            </div> 
+            <br />        
             <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">物品屬性</p>
             <Checked id="atr-quality" text="品質" checked={settings.itemProperty.quality}
                      onChange={(b) => setSettings({
