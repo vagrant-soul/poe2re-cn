@@ -7,7 +7,7 @@ import bannerImg from "@/img/dashang.png";
 import {
   Code,
   Github,
-  Bug,
+  // Bug,
   Coffee,
 } from "lucide-react"
 
