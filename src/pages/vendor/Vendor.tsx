@@ -23,7 +23,7 @@ export function Vendor() {
 
   return (
     <>
-      <Header name="Vendor Regex"></Header>
+      <Header name="商店正则生成"></Header>
       <div className="flex bg-muted grow-0 flex-1 flex-col gap-2 ">
         <Result
           result={result}

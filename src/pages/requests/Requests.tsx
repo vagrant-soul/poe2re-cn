@@ -11,7 +11,7 @@ const Requests = () => {
       目前处于早期开发阶段。新功能将随着游戏的探索而添加。
       </p>
       <p className="flex items-center justify-center">
-      请使用QQ提出您希望增加的功能或发现的问题。
+      请使用QQ频道提出您希望增加的功能或发现的问题。
       </p>
       <p className="flex items-center justify-center">
       当前测试阶段，完成商店部分的正则表达式生成
