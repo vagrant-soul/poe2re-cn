@@ -50,7 +50,7 @@ export const waystoneRegex: WaystoneRegex[] = [
 }, 
 {
   name: "##% 增加怪物群大小",
-  regex: "(?!法).*群",
+  regex: "(?!法).*群大",
   values: [],
   ranges: [[21, 50]],
   affix: "PREFIX",
