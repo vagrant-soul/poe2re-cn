@@ -49,8 +49,8 @@ function generateModifiers(settings: Settings["waystone"]["modifier"]): string |
 
   const goodMods = [
     settings.dropOverX ? `: \\+[${settings.dropOverValue.toString()[0]}-9]\\d\\d` : null,
-    settings.delirious ? "delir" : null,
-    settings.anyPack ? "al pac" : null,
+    settings.delirious ? "瘋癲" : null,
+    settings.anyPack ? "額外" : null,
   ].filter((e) => e !== null);
 
   const goodModsWithType = settings.prefixSelectType === "any"

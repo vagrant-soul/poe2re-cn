@@ -42,15 +42,15 @@ function generateRarityRegex(settings: Settings["tablet"]["rarity"]): string | n
       (!settings.normal && !settings.magic)){
     return null;
   }
-  const normalRegex = settings.normal ? "n" : "";
-  const magicRegex = settings.magic ? "m" : "";
+  const normalRegex = settings.normal ? "普" : "";
+  const magicRegex = settings.magic ? "魔" : "";
   const result = [normalRegex, magicRegex]
     .filter((e) => e.length > 0)
     .join("|");
 
   if (result.length === 0) return null;
-  if (result.length === 1) return `"y: ${result}"`;
-  if (result.length > 1) return `"y: (${result})"`;
+  if (result.length === 1) return `"度: ${result}"`;
+  if (result.length > 1) return `"度: (${result})"`;
   return null;
 }
 
@@ -75,12 +75,12 @@ function generateTypeRegex(settings: Settings["tablet"]["type"]): string | null 
     return null;
   }
   
-  const breachRegex = settings.breach ? "eac" : "";
-  const deliriumRegex = settings.delirium ? "liri" : "";
-  const irradiatedRegex = settings.irradiated ? "rra" : "";
-  const expeditionRegex = settings.expedition ? "xped" : "";
-  const ritualRegex = settings.ritual ? "tual" : "";
-  const overseerRegex = settings.overseer ? "eer" : "";
+  const breachRegex = settings.breach ? "裂痕" : "";
+  const deliriumRegex = settings.delirium ? "譫妄" : "";
+  const irradiatedRegex = settings.irradiated ? "怪物" : "";
+  const expeditionRegex = settings.expedition ? "探險" : "";
+  const ritualRegex = settings.ritual ? "祭祀" : "";
+  const overseerRegex = settings.overseer ? "總督" : "";
   const result = [breachRegex, deliriumRegex, irradiatedRegex,
                   expeditionRegex, ritualRegex, overseerRegex]
     .filter((e) => e.length > 0)
@@ -120,10 +120,10 @@ function generateAffectedMapsRegex(settings: Settings["tablet"]["modifier"]): st
   }
   else
   {
-    regex += "(" + ((settings.numAffectedMaps === 9) ? "9" : `[${settings.numAffectedMaps}-9]`) + "|10)"
+    regex += "(1" + ((settings.numAffectedMaps === 9) ? "9" : `[${settings.numAffectedMaps}-9]`) + ")"
   }
   
-  regex += "\\D{7}n Ra\"";
+  regex += " 張地\"";
   return regex;
 }
 

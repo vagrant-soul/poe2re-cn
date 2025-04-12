@@ -43,7 +43,7 @@ export function Relic() {
 
   return (
     <>
-      <Header name="Relic Regex"></Header>
+      <Header name="圣物正则生成器"></Header>
       <div className="flex bg-muted grow-0 flex-1 flex-col gap-2 ">
         <Result
           result={result}

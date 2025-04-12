@@ -20,7 +20,7 @@ export function Tablet(){
 
   return (
     <>
-      <Header name="Tablet Regex"></Header>
+      <Header name="碑牌正则生成器"></Header>
       <div className="flex bg-muted grow-0 flex-1 flex-col gap-2 ">
         <Result
           result={result}
@@ -42,7 +42,7 @@ export function Tablet(){
       <div className="flex grow bg-muted/30 flex-1 flex-col gap-2 p-4">
         <div className="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 gap-4">
           <div>
-            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">Tablet rarity</p>
+            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">碑牌稀有度</p>
             <Checked id="tabletrarity-magic" text="魔法" checked={settings.rarity.magic}
                      onChange={(b) => setSettings({
                        ...settings, rarity: {...settings.rarity, magic: b}
@@ -55,7 +55,7 @@ export function Tablet(){
             />
           </div>
           <div>
-            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">Tablet type</p>
+            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">碑牌类型</p>
             <Checked id="tablettype-breach" text="裂痕" checked={settings.type.breach}
                      onChange={(b) => setSettings({
                        ...settings, type: {...settings.type, breach: b}
@@ -88,9 +88,9 @@ export function Tablet(){
             />
           </div>
           <div>
-            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">Modifier</p>
+            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">修饰器</p>
             
-            <Checked id="tabletmodifier-affectedmaps" text="Min. affected maps in range" checked={settings.modifier.affectedMaps}
+            <Checked id="tabletmodifier-affectedmaps" text="范围内受影响地图的最小值1#" checked={settings.modifier.affectedMaps}
                      onChange={(b) => setSettings({
                        ...settings, modifier: {...settings.modifier, affectedMaps: b}
                      })}

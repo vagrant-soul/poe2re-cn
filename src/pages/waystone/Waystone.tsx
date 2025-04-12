@@ -56,7 +56,7 @@ export function Waystone() {
 
   return (
     <>
-      <Header name="Waystone Regex"></Header>
+      <Header name="換界石正则生成器"></Header>
       <div className="flex bg-muted grow-0 flex-1 flex-col gap-2 ">
         <Result
           result={result}
@@ -78,14 +78,14 @@ export function Waystone() {
       <div className="flex grow bg-muted/30 flex-1 flex-col gap-2 p-4">
         <div className="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 gap-4">
           <div>
-            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">Global settings</p>
-            <Checked id="round-10" text="Round down to nearest 10 (saves a lot of space)"
+            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">全局设置</p>
+            <Checked id="round-10" text="四舍五入到最接近的 10（节省大量空间）"
                      checked={settings.modifier.round10}
                      onChange={(b) => setSettings({
                        ...settings, modifier: {...settings.modifier, round10: b}
                      })}
             />
-            <Checked id="over-100" text="Match numbers over 100% (takes more space)"
+            <Checked id="over-100" text="匹配超过 100% 的数字（占用更多空间）"
                      checked={settings.modifier.over100}
                      onChange={(b) => setSettings({
                        ...settings, modifier: {...settings.modifier, over100: b}
@@ -94,7 +94,7 @@ export function Waystone() {
           </div>
           <div className="grid lg:grid-cols-2">
             <div>
-              <p className="pb-2">Minimum tier:</p>
+              <p className="pb-2">最低階級:</p>
               <Input type="number" min="1" max="16" placeholder="Min tier" className="pb-2 mb-2 w-40"
                      value={settings.tier.min}
                      onChange={(b) => {
@@ -107,7 +107,7 @@ export function Waystone() {
               />
             </div>
             <div>
-              <p className="pb-2">Maximum tier:</p>
+              <p className="pb-2">最高階級:</p>
               <Input type="number" min="1" max="16" placeholder="Max tier" className="pb-2 mb-2 w-40"
                      value={settings.tier.max}
                      onChange={(b) => {
@@ -137,8 +137,8 @@ export function Waystone() {
         </div>
         <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 gap-10">
           <div>
-            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">
-              Prefixes - Good modifiers
+            <p className="text-xs font-medium pb-2 pt-4 text-green-400">
+              前缀 - 正面词缀
             </p>
             <div className="pb-4">
               <RadioGroup value={settings.modifier.prefixSelectType} onValueChange={(v) => {
@@ -148,15 +148,15 @@ export function Waystone() {
               }}>
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="any" id="any"/>
-                  <Label htmlFor="any"><span className="text-lg cursor-pointer">Match when <span className="font-semibold">any</span> mod is found</span></Label>
+                  <Label htmlFor="any"><span className="text-lg cursor-pointer text-green-400">当找到 <span className="font-semibold">任何</span> 词缀时匹配</span></Label>
                 </div>
                 <div className="flex items-center space-x-2 pb-2">
                   <RadioGroupItem value="all" id="all"/>
-                  <Label htmlFor="all"><span className="text-lg cursor-pointer">Match only when <span className="font-semibold">all</span> mods are found</span></Label>
+                  <Label htmlFor="all"><span className="text-lg cursor-pointer text-green-400">仅当找到 <span className="font-semibold">所有</span> 词缀时匹配</span></Label>
                 </div>
               </RadioGroup>
             </div>
-            <Checked id="mod-drop-over-200" text="Waystone drop chance over"
+            <Checked id="mod-drop-over-200" text="換界石掉落機率"
                      checked={settings.modifier.dropOverX}
                      onChange={(b) => setSettings({
                        ...settings, modifier: {...settings.modifier, dropOverX: b}
@@ -181,13 +181,13 @@ export function Waystone() {
                 </Select>
               </div>
             </Checked>
-            <Checked id="mod-delirious" text="Players in area are #% delirious"
+            <Checked id="mod-delirious" text="此區域玩家 #% 瘋癲"
                      checked={settings.modifier.delirious}
                      onChange={(b) => setSettings({
                        ...settings, modifier: {...settings.modifier, delirious: b}
                      })}
             />
-            <Checked id="mod-anypack" text="Area contains # of any additional packs"
+            <Checked id="mod-anypack" text="區域含有額外 # 群怪物"
                      checked={settings.modifier.anyPack}
                      onChange={(b) => setSettings({
                        ...settings, modifier: {...settings.modifier, anyPack: b}
@@ -207,7 +207,7 @@ export function Waystone() {
           </div>
           <div>
             <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">
-              Suffixes - Bad modifiers (will not highlight maps with these modifiers)
+              后缀 - 负面效果 (将不会高亮显示带有这些修改器的地图)
             </p>
             <SelectList
               id="suffix-modifiers"

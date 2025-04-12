@@ -55,11 +55,11 @@ export function Vendor() {
               }}>
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="any" id="any"/>
-                  <Label htmlFor="any" className="font-medium text-green-400">任意匹配</Label>
+                  <Label htmlFor="any"><span className="text-lg cursor-pointer text-green-400"><span className="font-semibold">任意</span>匹配</span></Label>
                 </div>
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="both" id="both"/>
-                  <Label htmlFor="both" className="font-medium text-green-400">同时匹配</Label>
+                  <Label htmlFor="any"><span className="text-lg cursor-pointer text-green-400"><span className="font-semibold">同时</span>匹配</span></Label>
                 </div>
               </RadioGroup>
             </div> 
