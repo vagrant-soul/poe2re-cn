@@ -70,13 +70,13 @@ export function Relic() {
         }}>
           <div className="flex items-center space-x-2">
             <RadioGroupItem value="any" id="any"/>
-            <Label htmlFor="any"><span className="text-lg cursor-pointer">Match if <span
-              className="font-semibold">any</span> prefix or suffix matches</span></Label>
+            <Label htmlFor="any"><span className="text-lg cursor-pointer text-green-400">匹配 <span
+              className="font-semibold">任何</span> 前缀或后缀</span></Label>
           </div>
           <div className="flex items-center space-x-2 pb-2">
             <RadioGroupItem value="both" id="both"/>
-            <Label htmlFor="both"><span className="text-lg cursor-pointer">Only match if <span
-              className="font-semibold">both</span> prefix and suffix matches</span></Label>
+            <Label htmlFor="both"><span className="text-lg cursor-pointer text-green-400">仅当前缀与后缀 <span
+              className="font-semibold">全需</span> 匹配时</span></Label>
           </div>
         </RadioGroup>
       </div>

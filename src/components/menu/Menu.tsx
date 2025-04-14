@@ -2,6 +2,7 @@ import vendorIcon from "@/img/whetstone_inventory_icon.png";
 import waystoneIcon from "@/img/waystone_inventory_icon.png";
 import tabletIcon from "@/img/precursortablet_inventory_icon.png";
 import relicIcon from "@/img/relic_inventory_icon.png";
+import homeIcon from "@/img/MarakethSanctumAscendancyAltar.png";
 import bannerImg from "@/img/dashang.png";
 
 import {
@@ -25,22 +26,27 @@ import {
 
 const items = [
   {
+    title: "首页",
+    url: "/",
+    icon: homeIcon,
+  },
+  {
     title: "商店",
     url: "/vendor",
     icon: vendorIcon,
   },
   {
-    title: "Waystones",
+    title: "地图",
     url: "/waystone",
     icon: waystoneIcon,
   },
   {
-    title: "Tablets",
+    title: "碑牌",
     url: "/tablet",
     icon: tabletIcon,
   },
   {
-    title: "Relics",
+    title: "圣物",
     url: "/relic",
     icon: relicIcon,
   },
