@@ -3,19 +3,42 @@ import {Result} from "@/components/result/Result.tsx";
 import {defaultSettings, Settings} from "@/app/settings.ts";
 import {useEffect, useState} from "react";
 import {loadSettings, saveSettings, selectedProfile} from "@/lib/localStorage.ts";
-import {generateTabletRegex} from "@/pages/tablet/TabletResult.ts";
-import {Input} from "@/components/ui/input.tsx";
-import {Checked} from "@/components/checked/Checked.tsx";
+import {SelectList, SelectOption} from "@/components/selectList/SelectList.tsx";
+import {tabletRegex} from "@/generated/Tablet.Gen.ts";
+import {RadioGroup, RadioGroupItem} from "@/components/ui/radio-group.tsx";
+import {Label} from "@/components/ui/label.tsx";
+import {generateTabletResult} from "@/pages/tablet/TabletResult.ts";
 
-export function Tablet(){
+
+export function Tablet() {
   const globalSettings = loadSettings(selectedProfile())
   const [settings, setSettings] = useState<Settings["tablet"]>(globalSettings.tablet);
   const [result, setResult] = useState("");
 
+  const prefixes: SelectOption[] = tabletRegex
+    .filter((e) => e.affix === "PREFIX")
+    .map((mod) => ({
+      name: mod.name,
+      isSelected: false,
+      value: null,
+      ranges: mod.ranges,
+      regex: mod.regex,
+    }));
+
+  const suffixes: SelectOption[] = tabletRegex
+    .filter((e) => e.affix === "SUFFIX")
+    .map((mod) => ({
+      name: mod.name,
+      isSelected: false,
+      value: null,
+      ranges: mod.ranges,
+      regex: mod.regex,
+    }));
+
   useEffect(() => {
     const settingsResult = {...globalSettings, tablet: {...settings}};
     saveSettings(settingsResult);
-    setResult(generateTabletRegex(settingsResult));
+    setResult(generateTabletResult(settingsResult));
   }, [settings]);
 
   return (
@@ -39,74 +62,48 @@ export function Tablet(){
           }}
         />
       </div>
-      <div className="flex grow bg-muted/30 flex-1 flex-col gap-2 p-4">
-        <div className="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 gap-4">
-          <div>
-            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">碑牌稀有度</p>
-            <Checked id="tabletrarity-magic" text="魔法" checked={settings.rarity.magic}
-                     onChange={(b) => setSettings({
-                       ...settings, rarity: {...settings.rarity, magic: b}
-                     })}
-            />
-            <Checked id="tabletrarity-normal" text="普通" checked={settings.rarity.normal}
-                     onChange={(b) => setSettings({
-                       ...settings, rarity: {...settings.rarity, normal: b}
-                     })}
-            />
+      <div className="p-4">
+        <RadioGroup value={settings.matchType} onValueChange={(v) => {
+          setSettings({
+            ...settings, matchType: v,
+          })
+        }}>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="any" id="any"/>
+            <Label htmlFor="any"><span className="text-lg cursor-pointer text-green-400">匹配 <span
+              className="font-semibold">任何</span> 前缀或后缀</span></Label>
           </div>
-          <div>
-            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">碑牌类型</p>
-            <Checked id="tablettype-breach" text="裂痕" checked={settings.type.breach}
-                     onChange={(b) => setSettings({
-                       ...settings, type: {...settings.type, breach: b}
-                     })}
-            />
-            <Checked id="tablettype-delirium" text="譫妄" checked={settings.type.delirium}
-                     onChange={(b) => setSettings({
-                       ...settings, type: {...settings.type, delirium: b}
-                     })}
-            />
-            <Checked id="tablettype-precursor" text="先行者" checked={settings.type.irradiated}
-                     onChange={(b) => setSettings({
-                       ...settings, type: {...settings.type, irradiated: b}
-                     })}
-            />
-            <Checked id="tablettype-breach" text="探險" checked={settings.type.expedition}
-                     onChange={(b) => setSettings({
-                       ...settings, type: {...settings.type, expedition: b}
-                     })}
-            />
-            <Checked id="tablettype-breach" text="祭祀" checked={settings.type.ritual}
-                     onChange={(b) => setSettings({
-                       ...settings, type: {...settings.type, ritual: b}
-                     })}
-            />
-            <Checked id="tablettype-breach" text="總督" checked={settings.type.overseer}
-                     onChange={(b) => setSettings({
-                       ...settings, type: {...settings.type, overseer: b}
-                     })}
-            />
+          <div className="flex items-center space-x-2 pb-2">
+            <RadioGroupItem value="both" id="both"/>
+            <Label htmlFor="both"><span className="text-lg cursor-pointer text-green-400">仅当前缀与后缀 <span
+              className="font-semibold">全需</span> 匹配时</span></Label>
           </div>
-          <div>
-            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">修饰器</p>
-            
-            <Checked id="tabletmodifier-affectedmaps" text="范围内受影响地图的最小值1#" checked={settings.modifier.affectedMaps}
-                     onChange={(b) => setSettings({
-                       ...settings, modifier: {...settings.modifier, affectedMaps: b}
-                     })}
-            />
-            <Input type="number" placeholder="Min affected maps in range" className="pb-2 mb-2 w-40"
-                   value={settings.modifier.numAffectedMaps}
-                   min="1"
-                   max="10"
-                   onChange={(b) =>
-                     setSettings({
-                       ...settings, modifier: {...settings.modifier, numAffectedMaps: Number(b.target.value) || 0}
-                     })}
-            />
-          </div>
-        </div>
+        </RadioGroup>
+      </div>
+      <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 gap-10">
+        <SelectList
+          id="prefix-modifiers"
+          options={prefixes}
+          selected={settings.modifier.prefixes}
+          setSelected={(modifiers) => {
+            setSettings({
+              ...settings,
+              modifier: {...settings.modifier, prefixes: modifiers}
+            })
+          }}
+        />
+        <SelectList
+          id="suffix-modifiers"
+          options={suffixes}
+          selected={settings.modifier.suffixes}
+          setSelected={(modifiers) => {
+            setSettings({
+              ...settings,
+              modifier: {...settings.modifier, suffixes: modifiers}
+            })
+          }}
+        />
       </div>
     </>
-  )
+  );
 }

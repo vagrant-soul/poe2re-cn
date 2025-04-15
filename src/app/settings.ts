@@ -106,21 +106,10 @@ export interface Settings {
   },
   tablet: {
     resultSettings: ResultSettings,
-    rarity: {
-      normal: boolean,
-      magic: boolean,
-    },
-    type: {
-      breach: boolean,
-      delirium: boolean,
-      irradiated: boolean,
-      expedition: boolean,
-      ritual: boolean,
-      overseer: boolean,
-    },
+    matchType: string,
     modifier: {
-      affectedMaps: boolean,
-      numAffectedMaps: number,
+      prefixes: SelectOption[],
+      suffixes: SelectOption[],
     }
   },
   relic: {
@@ -229,21 +218,10 @@ export const defaultSettings: Settings = {
   },
   tablet: {
     resultSettings: defaultResultSettings,
-    rarity: {
-      normal: false,
-      magic: false,
-    },
-    type: {
-      breach: false,
-      delirium: false,
-      irradiated: false,
-      expedition: false,
-      ritual: false,
-      overseer: false,
-    },
+    matchType: "any",
     modifier: {
-      affectedMaps: false,
-      numAffectedMaps: 0,
+      prefixes: [],
+      suffixes: [],
     }
   },
   relic: {

@@ -11,10 +11,10 @@ const Requests = () => {
       目前处于早期开发阶段。新功能将随着游戏的探索而添加。
       </p>
       <p className="flex items-center justify-center">
-      请使用 <a href="https://pd.qq.com/s/115ng3af4" className="flex font-semibold text-green-400">QQ频道</a> 提出希望增加的功能或反馈Bug。
+      请使用 <a href="https://pd.qq.com/s/115ng3af4" className="flex font-semibold text-green-400 px-2">QQ频道</a> 提出希望增加的功能或反馈Bug。
       </p>     
-      <p className="flex items-center justify-center">
-      感谢： <span className="font-semibold pl-2 pr-2">Netlify</span>提供网站服务，<span className="font-semibold pl-2 pr-2">编年史</span>提供数据支持。
+      <p className="flex justify-center items-center">
+        感谢：<span className="font-semibold px-2">编年史</span>提供数据支持。
       </p> 
       <p className="flex items-center justify-center">       
       感谢大家<span className="font-semibold text-green-400 pl-2 pr-2">打赏</span>支持，助我早日拥有国内服务器
@@ -54,12 +54,20 @@ const Requests = () => {
           </a>
         </div>
       </p>
-      <h2 className="flex items-center justify-start lg:text-1xl pt-10">近期更新</h2>
-      <p className="flex items-center justify-start pt-5">
+      <div className="pl-4">
+        <h2 className="text-lg font-medium pt-10 pb-2">近期更新</h2>
+        <div className="space-y-4">
         <div>
-        <span className="font-semibold">2025-4-14</span> 完成正则的中文化，有些公式因为没有对应的物品，参考的编年史的词缀表
+            <span className="font-semibold">2025-4-15</span> 
+            <span className="pl-2">新增碑牌词缀正则（部分待验证）</span>
+          </div>
+          <div>
+            <span className="font-semibold">2025-4-14</span> 
+            <span className="pl-2">完成正则的中文化，部分公式参考编年史词缀表</span>
+          </div>
+          
         </div>
-      </p>
+      </div>
     </div>
   )
 }
